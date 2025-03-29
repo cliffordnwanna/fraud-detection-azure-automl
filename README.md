@@ -10,8 +10,8 @@ This project demonstrates how **AutoML** can significantly improve fraud detecti
 ```
 fraud-detection-azure-automl/
 │── 📂 images/               # Folder for images used in the README
-│── 📂 src/                  # Source code for preprocessing, training, and deployment
-│── 📂 models/               # Saved models and evaluation reports
+│── 📂 src/                  # Source code for preprocessing & training
+│── 📂 model/               # Saved model
 │── README.md                # Project documentation (this file)
 
 ```
@@ -19,25 +19,25 @@ fraud-detection-azure-automl/
 ---
 ## 📊 Dataset
 
-A synthetic financial transaction dataset was used, containing labeled fraud instances. Key features include:
+There is a lack of public available datasets on financial services and specially in the emerging mobile money transactions domain. Financial datasets are important to many researchers and in particular to us performing research in the domain of fraud detection. Part of the problem is the intrinsically private nature of financial transactions, that leads to no publicly available datasets.
+
+I utilized a synthetic dataset generated using the simulator called PaySim as an approach to such a problem. PaySim uses aggregated data from the private dataset to generate a synthetic dataset that resembles the normal operation of transactions and injects malicious behaviour to later evaluate the performance of fraud detection methods.
+
+Content
+PaySim simulates mobile money transactions based on a sample of real transactions extracted from one month of financial logs from a mobile money service implemented in an African country. The original logs were provided by a multinational company, who is the provider of the mobile financial service which is currently running in more than 14 countries all around the world.
+
+Source : https://www.kaggle.com/datasets/ealaxi/paysim1
+
+Key features include:
 - **Transaction Type** (e.g., online transfer, ATM withdrawal)
 - **Transaction Amount**
 - **Customer Account Info** (pre/post balances)
 - **Recipient Account Info**
-- **Behavioral Patterns**
+
+![Datascource](images/Screenshot%20(7).png)
+
 
 ---
-## 🔧 Environment Setup
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/yourusername/fraud-detection-azure-automl.git
-cd fraud-detection-azure-automl
-```
-
-### 2️⃣ Install Dependencies
-```bash
-pip install -r requirements.txt
-```
 
 ### 3️⃣ Set Up Azure ML
 1. Create an **Azure Machine Learning workspace**.
@@ -48,17 +48,7 @@ pip install -r requirements.txt
    - **Models Tested:** XGBoostClassifier, LightGBM, RandomForest
    - **Cross-validation:** 5-fold
 
----
-## 🖼️ Adding Images to README
-To include images in this README, **upload them to the** `images/` **folder** and use the following format:
-```markdown
-![Description](images/your-image.png)
-```
-
-Example:
-```markdown
-![ROC Curve](images/roc_curve.png)
-```
+![Azure ML Config](images/Screenshot%20(8).png)
 
 ---
 ## 📈 Results
@@ -69,7 +59,7 @@ Example:
 - **Recall Score:** 99.98%
 - **F1 Score Weighted:** 99.98%
 
-![Model Performance](images/model_performance.png)
+![Metrics](images/Screenshot%20(13).png)
 
 ### 🔍 Key Features Contributing to Fraud Detection
 1. **Transaction Amount relative to Account History**
@@ -77,6 +67,7 @@ Example:
 3. **Transaction Type**
 4. **Timing Patterns**
 
+![Feature Engineering](images/Screenshot%20(14).png)
 ---
 ## 🚀 Deployment
 The model is deployed as a **real-time Azure ML endpoint**, allowing:
@@ -100,8 +91,7 @@ The model is deployed as a **real-time Azure ML endpoint**, allowing:
 ## 💬 Let's Connect!
 I’d love to collaborate with others working on **fraud detection, fintech, and AI in banking**. Feel free to reach out or fork the repo to improve it!
 
-📌 **GitHub Repository**: [Insert GitHub Link]  
-📌 **LinkedIn Post**: [Insert LinkedIn Post Link]  
+
 
 #DataScience #MachineLearning #FraudDetection #Azure #AutoML #Banking
 
