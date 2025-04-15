@@ -10,8 +10,8 @@ This project demonstrates how **AutoML** can significantly improve fraud detecti
 ```
 fraud-detection-azure-automl/
 │── 📂 images/               # Folder for images used in the README
-│── 📂 src/                  # Source code for preprocessing & training
 │── 📂 model/               # Saved model
+│── 📂 src/                  # Source code for preprocessing & training
 │── README.md                # Project documentation (this file)
 
 ```
